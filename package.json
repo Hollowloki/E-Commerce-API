@@ -1,0 +1,28 @@
+{
+  "name": "firstone",
+  "version": "1.0.0",
+  "description": "anime exploring & watching",
+  "main": "index.js",
+  "scripts": {
+    "ehleh": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "munkherdene",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-jwt": "^6.1.1",
+    "express-validator": "^5.3.1",
+    "formidable": "^2.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.2.6",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "uuid": "^8.3.2",
+    "uuidv1": "^1.6.14"
+  }
+}
