@@ -3,10 +3,12 @@ const express = require('express');
 const router = express.Router();
 const {userById} = require('../controller/userId.controller')
 const {signIn, signUp, signOut, requireSignin} = require('../controller/user.controller')
-const {productById,saveProduct, read,remove,update} = require('../controller/product.controller');
+const {productById,saveProduct, read,remove,update,getAll} = require('../controller/product.controller');
 
 //router.get('/product', getAllProduct);
+router.get('/product', getAll);
 router.get('/product/:productId', read);
+
 router.post('/product/create/:userId',requireSignin,
 isAdmin,
 isAuth,saveProduct,);

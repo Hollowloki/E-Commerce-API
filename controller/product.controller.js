@@ -4,6 +4,19 @@ const lodash = require('lodash')
 const fs = require('fs');
 const { errorHandler } = require('../helpers/dbErrorHandler');
 
+ function getAll(req, res) {
+    console.log(Object.keys(req.query));
+    Product.find({}, function(err, users) {
+        var userMap = {};
+        users.forEach(function(user) {
+            userMap[user._id] = user;
+          });
+          return res.status(200).json(userMap);
+    }).setQuery(req.query);
+    
+}
+
+
 function productById(req, res ,next,id) {
     Product.findById(id).exec((err, product) =>{
         if(err || !product) {
@@ -13,12 +26,13 @@ function productById(req, res ,next,id) {
         } 
         req.product = product;
         next();
-    })
+    });
 }
 
 function read(req, res) {
     req.product.photo = undefined;
     return res.json(req.product);
+    
 }
 
 function saveProduct(req, res) {
@@ -128,6 +142,7 @@ function update(req, res) {
     })
 }
 
+
 module.exports = {
-    saveProduct,read,productById,remove,update
+    saveProduct,read,productById,remove,update,getAll
 }

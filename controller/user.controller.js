@@ -7,7 +7,7 @@ const expressJwt = require('express-jwt'); // for authorization check
 
 function signUp(req,res) {
     console.log("req..body", req.body);
-    const user = new User(req.body)
+    const user = new User(req.body);
     
     //save doing all
     user.save((err, user) => {
@@ -74,7 +74,7 @@ requireSignin = expressJwt({
 
 
 isAuth = (req, res,next) => {
-
+    console.log(req);
     let user = req.profile && req.auth && req.profile._id == req.auth._id
 
     if(!user) {
